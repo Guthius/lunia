@@ -9,7 +9,7 @@ namespace AllM::XRated::Framework
 	public:
 		virtual ~IModule() = default;
 
-		virtual void Initialize(IApplication &system) = 0;
-		virtual void Run(IApplication &system) = 0;
+		virtual void Initialize(IApplication &application) = 0;
+		virtual void Run(IApplication &application) = 0;
 	};
 }

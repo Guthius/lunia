@@ -4,11 +4,12 @@
 
 namespace AllM
 {
-	void LuniaModule::Initialize(XRated::Framework::IApplication &system)
+	void LuniaModule::Initialize(XRated::Framework::IApplication &application)
 	{
+		layerSystem = new XRated::Framework::LayerSystem("layersystem1", *system);
 	}
 
-	void LuniaModule::Run(XRated::Framework::IApplication &system)
+	void LuniaModule::Run(XRated::Framework::IApplication &application)
 	{
 		ClearBackground(SKYBLUE);
 

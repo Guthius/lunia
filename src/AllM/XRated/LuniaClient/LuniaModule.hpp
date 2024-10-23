@@ -1,14 +1,18 @@
 #pragma once
 
 #include <AllM/XRated/Framework/IModule.hpp>
+#include <AllM/XRated/Framework/LayerSystem.hpp>
 
 namespace AllM
 {
 	class LuniaModule final : public XRated::Framework::IModule
 	{
-	public:
-		void Initialize(XRated::Framework::IApplication &system) override;
+		XRated::Framework::LayerSystem* layerSystem;
+		XRated::Framework::System* system;
 
-		void Run(XRated::Framework::IApplication &system) override;
+	public:
+		void Initialize(XRated::Framework::IApplication &application) override;
+
+		void Run(XRated::Framework::IApplication &application) override;
 	};
 }
