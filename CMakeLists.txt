@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.29)
+project(Lunia)
+
+set(CMAKE_CXX_STANDARD 26)
+
+find_package(raylib REQUIRED)
+
+add_executable(LuniaClient WIN32
+        src/AllM/XRated/Framework/Application.cpp
+        src/AllM/XRated/Framework/Application.hpp
+        src/AllM/XRated/Framework/IApplication.hpp
+        src/AllM/XRated/Framework/IModule.hpp
+
+        src/AllM/XRated/LuniaClient/Lunia.cpp
+        src/AllM/XRated/LuniaClient/Lunia.hpp
+        src/AllM/XRated/LuniaClient/Lunia.rc
+        src/AllM/XRated/LuniaClient/LuniaModule.cpp
+        src/AllM/XRated/LuniaClient/LuniaModule.hpp)
+
+target_link_libraries(LuniaClient PRIVATE raylib)
+target_include_directories(LuniaClient PRIVATE src)
