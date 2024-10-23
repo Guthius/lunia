@@ -11,15 +11,15 @@ namespace AllM::XRated::Framework
 		{
 		}
 
-		virtual void Update(System &, float dt)
+		virtual void Update(System &system, float dt)
 		{
 		}
 
-		virtual void UpdateFixed(System &, float dt)
+		virtual void UpdateFixed(System &system, float dt)
 		{
 		}
 
-		virtual void Render(System &)
+		virtual void Render(System &system)
 		{
 		}
 	};
