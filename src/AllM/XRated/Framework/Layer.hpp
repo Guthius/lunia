@@ -26,16 +26,9 @@ namespace AllM::XRated::Framework
 		State state_{State::Hidden};
 		bool initialized_{false};
 
-		~Layer() override = default;
-
 	public:
 		explicit Layer(std::string name) : name_(std::move(name))
 		{
-		}
-
-		void Free() override
-		{
-			delete this;
 		}
 
 		void Initialize(System &system) override

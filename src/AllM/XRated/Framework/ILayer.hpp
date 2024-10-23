@@ -8,11 +8,9 @@ namespace AllM::XRated::Framework
 {
 	class ILayer
 	{
-	protected:
+	public:
 		virtual ~ILayer() = default;
 
-	public:
-		virtual void Free() = 0;
 		virtual void Initialize(System &system) = 0;
 		virtual bool Update(System &system, float dt) = 0;
 		virtual void Render(System &system) = 0;
