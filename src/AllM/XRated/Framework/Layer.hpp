@@ -63,13 +63,13 @@ namespace AllM::XRated::Framework
 		bool Hide() override
 		{
 			state_ = State::Hiding;
-			return false;
+			return true;
 		}
 
 		bool Show() override
 		{
 			state_ = State::Showing;
-			return false;
+			return true;
 		}
 
 		[[nodiscard]] const std::string &GetName() const override

@@ -14,8 +14,6 @@ namespace AllM
 
 		layer_system_ = new XRated::Framework::LayerSystem(*system_);
 		layer_system_->Add(lobby);
-		layer_system_->Hide("lobby");
-
 		layer_system_->Show("lobby");
 	}
 
@@ -24,9 +22,6 @@ namespace AllM
 		const auto dt = GetFrameTime();
 
 		layer_system_->Update(*system_, dt);
-
-		ClearBackground(SKYBLUE);
-
-		DrawText("Lunia Shell", 10, 10, 20, WHITE);
+		layer_system_->Render(*system_);
 	}
 }

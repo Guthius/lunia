@@ -5,7 +5,6 @@
 #include <ranges>
 
 #include "ILayerSystem.hpp"
-#include "LayerFactory.hpp"
 
 namespace AllM::XRated::Framework
 {
@@ -41,7 +40,7 @@ namespace AllM::XRated::Framework
 				return;
 			}
 
-			if (const auto &layer = iter->second; !layer->Show())
+			if (const auto &layer = iter->second; layer->Show())
 			{
 				visible_.remove(layer);
 				visible_.push_back(layer);
