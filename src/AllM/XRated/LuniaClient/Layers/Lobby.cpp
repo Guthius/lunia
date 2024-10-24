@@ -2,20 +2,32 @@
 
 #include <raylib.h>
 
+#include "ILobbyGUI.hpp"
+
 namespace AllM::XRated::Lunia::Layers
 {
 	class Lobby final : public ILobby
 	{
+		std::unique_ptr<ILobbyGUI> gui_;
+
 	public:
 		explicit Lobby(const std::string &name): ILobby(name)
 		{
+			gui_ = CreateLobbyGUI();
+		}
+
+		bool Update(const float dt) override
+		{
+			gui_->Update(dt);
+
+			return false;
 		}
 
 		void Render() override
 		{
 			ClearBackground(SKYBLUE);
 
-			DrawText("Lunia Shell", 10, 10, 20, WHITE);
+			gui_->Render();
 		}
 	};
 

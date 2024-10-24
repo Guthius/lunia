@@ -1,7 +1,7 @@
+#include <Windows.h>
 #include <AllM/XRated/Framework/Application.hpp>
 
 #include "LuniaModule.hpp"
-#include <Windows.h>
 
 int main()
 {

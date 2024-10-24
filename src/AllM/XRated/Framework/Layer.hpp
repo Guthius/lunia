@@ -20,7 +20,6 @@ namespace AllM::XRated::Framework
 		};
 
 		State state_{State::Hidden};
-		bool initialized_{false};
 
 	public:
 		explicit Layer(std::string name) : name_(std::move(name))
