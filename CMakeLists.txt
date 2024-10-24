@@ -12,10 +12,8 @@ add_executable(LuniaClient WIN32
         src/AllM/XRated/Framework/ILayer.hpp
         src/AllM/XRated/Framework/ILayerSystem.hpp
         src/AllM/XRated/Framework/IModule.hpp
-        src/AllM/XRated/Framework/IObject.hpp
         src/AllM/XRated/Framework/Layer.hpp
         src/AllM/XRated/Framework/LayerSystem.hpp
-        src/AllM/XRated/Framework/System.hpp
 
         src/AllM/XRated/LuniaClient/Layers/ILobby.hpp
         src/AllM/XRated/LuniaClient/Layers/Lobby.cpp

@@ -11,10 +11,6 @@ namespace AllM::XRated::Framework
 		std::string name_;
 
 	protected:
-		virtual void Init(System &system)
-		{
-		}
-
 		enum class State
 		{
 			Showing,
@@ -31,22 +27,12 @@ namespace AllM::XRated::Framework
 		{
 		}
 
-		void Initialize(System &system) override
-		{
-			if (!initialized_)
-			{
-				Init(system);
-
-				initialized_ = true;
-			}
-		}
-
-		bool Update(System &system, float dt) override
+		bool Update(float dt) override
 		{
 			return false;
 		}
 
-		void Render(System &system) override
+		void Render() override
 		{
 		}
 

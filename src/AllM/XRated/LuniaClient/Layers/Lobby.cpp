@@ -6,15 +6,12 @@ namespace AllM::XRated::Lunia::Layers
 {
 	class Lobby final : public ILobby
 	{
-		Framework::System &system_;
-
 	public:
-		Lobby(const std::string &name, Framework::System &system)
-			: ILobby(name), system_(system)
+		explicit Lobby(const std::string &name): ILobby(name)
 		{
 		}
 
-		void Render(Framework::System &system) override
+		void Render() override
 		{
 			ClearBackground(SKYBLUE);
 
@@ -22,8 +19,8 @@ namespace AllM::XRated::Lunia::Layers
 		}
 	};
 
-	std::shared_ptr<ILobby> CreateLobbyLayer(const std::string &name, Framework::System &system)
+	std::shared_ptr<ILobby> CreateLobbyLayer(const std::string &name)
 	{
-		return std::make_shared<Lobby>(name, system);
+		return std::make_shared<Lobby>(name);
 	}
 }

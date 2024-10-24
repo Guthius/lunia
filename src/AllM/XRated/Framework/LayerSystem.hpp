@@ -12,7 +12,6 @@ namespace AllM::XRated::Framework
 	{
 		std::list<std::shared_ptr<ILayer> > visible_;
 		std::map<std::string, std::shared_ptr<ILayer> > map_;
-		System &system_;
 
 		void AddVisible(const std::shared_ptr<ILayer> &layer)
 		{
@@ -28,10 +27,6 @@ namespace AllM::XRated::Framework
 		}
 
 	public:
-		explicit LayerSystem(System &system) : system_(system)
-		{
-		}
-
 		void Show(const std::string &layer_name)
 		{
 			const auto iter = map_.find(layer_name);
@@ -67,7 +62,7 @@ namespace AllM::XRated::Framework
 		{
 			map_[layer->GetName()] = layer;
 
-			layer->Initialize(system_);
+			layer->Initialize();
 		}
 
 		void Remove(const std::string &layer_name) override
@@ -87,7 +82,7 @@ namespace AllM::XRated::Framework
 			map_.erase(iter);
 		}
 
-		[[nodiscard]] const std::shared_ptr<ILayer> GetLayer(const std::string &layer_name) const override
+		[[nodiscard]] std::shared_ptr<ILayer> GetLayer(const std::string &layer_name) const override
 		{
 			const auto iter = map_.find(layer_name);
 			if (iter == map_.end())
@@ -98,7 +93,7 @@ namespace AllM::XRated::Framework
 			return iter->second;
 		}
 
-		[[nodiscard]] const std::shared_ptr<ILayer> GetTopVisibleLayer() const override
+		[[nodiscard]] std::shared_ptr<ILayer> GetTopVisibleLayer() const override
 		{
 			if (!visible_.empty())
 			{
@@ -108,22 +103,22 @@ namespace AllM::XRated::Framework
 			return nullptr;
 		}
 
-		void Update(System &system, const float dt) override
+		void Update(const float dt) override
 		{
 			for (const auto &layer: std::ranges::reverse_view(visible_))
 			{
-				if (layer->Update(system, dt))
+				if (layer->Update(dt))
 				{
 					break; // Layers can be exclusive
 				}
 			}
 		}
 
-		void Render(System &system) override
+		void Render() override
 		{
 			for (const auto &layer: visible_)
 			{
-				layer->Render(system);
+				layer->Render();
 			}
 		}
 	};

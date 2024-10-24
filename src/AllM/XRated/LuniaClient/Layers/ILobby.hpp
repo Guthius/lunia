@@ -2,7 +2,6 @@
 
 #include <memory>
 #include <AllM/XRated/Framework/Layer.hpp>
-#include <AllM/XRated/Framework/System.hpp>
 
 namespace AllM::XRated::Lunia::Layers
 {
@@ -14,5 +13,5 @@ namespace AllM::XRated::Lunia::Layers
 		}
 	};
 
-	std::shared_ptr<ILobby> CreateLobbyLayer(const std::string &name, Framework::System &system);
+	std::shared_ptr<ILobby> CreateLobbyLayer(const std::string &name);
 }

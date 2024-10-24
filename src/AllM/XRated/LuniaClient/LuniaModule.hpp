@@ -7,8 +7,7 @@ namespace AllM
 {
 	class LuniaModule final : public XRated::Framework::IModule
 	{
-		XRated::Framework::LayerSystem *layer_system_{};
-		XRated::Framework::System *system_{};
+		XRated::Framework::LayerSystem layer_system_{};
 
 	public:
 		void Initialize(XRated::Framework::IApplication &application) override;
